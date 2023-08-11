@@ -29,14 +29,18 @@ public class AppInitializer {
 //      System.out.println(context.getBean(MYBeanThree.class));
 
         //Hooking process in java
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //we must shout down the Applicatin context while Jvm is About to shut Down
-                context.close();
-                System.out.println("Shut down Application context");
-            }
-        }));
+
+//        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                //we must shout down the Applicatin context while Jvm is About to shut Down
+//                context.close();
+//                System.out.println("Shut down Application context");
+//            }
+//        }));
+
+        //We can shut down Application context like this (automatically shut down Application context)
+        context.registerShutdownHook();
 
     }
 }
