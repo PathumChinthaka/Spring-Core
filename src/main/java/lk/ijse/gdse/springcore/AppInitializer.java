@@ -1,5 +1,7 @@
 package lk.ijse.gdse.springcore;
 
+import lk.ijse.gdse.springcore.bean.MYBeanThree;
+import lk.ijse.gdse.springcore.bean.MYBeanTwo;
 import lk.ijse.gdse.springcore.bean.MyBean;
 import lk.ijse.gdse.springcore.config.ApplicationConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,9 +14,17 @@ public class AppInitializer {
 
         //call the testBean concern inside mybean class
         MyBean bean = context.getBean(MyBean.class);
-        System.out.println(bean);
         bean.testBean();
 
+        //get bean classes from Spring Application context
+        System.out.println(context.getBean(MyBean.class));
+        System.out.println(context.getBean(MYBeanTwo.class));
+
         context.close();
+
+        //Error because we have already closed the context
+        System.out.println(context.getBean(MYBeanThree.class));
+
+
     }
 }
