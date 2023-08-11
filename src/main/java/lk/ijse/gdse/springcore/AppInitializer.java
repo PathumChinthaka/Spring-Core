@@ -8,6 +8,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class AppInitializer {
     public static void main(String[] args) {
+
+
+
         AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
         context.register(ApplicationConfig.class);
         context.refresh();
@@ -20,11 +23,20 @@ public class AppInitializer {
         System.out.println(context.getBean(MyBean.class));
         System.out.println(context.getBean(MYBeanTwo.class));
 
-        context.close();
+//      context.close();
 
-        //Error because we have already closed the context
-        System.out.println(context.getBean(MYBeanThree.class));
+//      Error because we have already closed the context
+//      System.out.println(context.getBean(MYBeanThree.class));
 
+        //Hooking process in java
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //we must shout down the Applicatin context while Jvm is About to shut Down
+                context.close();
+                System.out.println("Shut down Application context");
+            }
+        }));
 
     }
 }
