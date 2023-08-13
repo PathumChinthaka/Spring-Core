@@ -42,6 +42,10 @@ public class AppInitializer {
         Object bean1 = context.getBean("myBean");
         System.out.println(bean1);
 
+        //change default bean id
+        Object bean3 = context.getBean("SpringBeanThree");
+        System.out.println(bean3);
+
         //We can shut down Application context like this (automatically shut down Application context)
         context.registerShutdownHook();
 
