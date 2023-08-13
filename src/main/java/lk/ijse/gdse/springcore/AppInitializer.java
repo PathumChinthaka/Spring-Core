@@ -3,6 +3,7 @@ package lk.ijse.gdse.springcore;
 import lk.ijse.gdse.springcore.bean.MYBeanThree;
 import lk.ijse.gdse.springcore.bean.MYBeanTwo;
 import lk.ijse.gdse.springcore.bean.MyBean;
+import lk.ijse.gdse.springcore.bean.MyConnection;
 import lk.ijse.gdse.springcore.config.ApplicationConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -45,6 +46,18 @@ public class AppInitializer {
         //change default bean id
         Object bean3 = context.getBean("SpringBeanThree");
         System.out.println(bean3);
+
+        //get bean id from the class i didnt define
+        //this is not the correct way to access the bean id
+
+        MyConnection myConnection = (MyConnection) context.getBean("myConnection");
+        System.out.println(myConnection);
+
+        //if we use @Bean annotation we cannot access the bean id from class Name
+        // we should provide the method name inside the config class
+
+        MyConnection myConnection1= (MyConnection) context.getBean("getConnection");
+        System.out.println(myConnection1);
 
         //We can shut down Application context like this (automatically shut down Application context)
         context.registerShutdownHook();
