@@ -9,8 +9,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AppInitializer {
     public static void main(String[] args) {
 
-
-
         AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
         context.register(ApplicationConfig.class);
         context.refresh();
@@ -38,6 +36,11 @@ public class AppInitializer {
 //                System.out.println("Shut down Application context");
 //            }
 //        }));
+
+        //get bean Id from Application context
+        //MyBean->myBean First letter should be lowerCase
+        Object bean1 = context.getBean("myBean");
+        System.out.println(bean1);
 
         //We can shut down Application context like this (automatically shut down Application context)
         context.registerShutdownHook();
