@@ -1,9 +1,6 @@
 package lk.ijse.gdse.springcore;
 
-import lk.ijse.gdse.springcore.bean.MYBeanThree;
-import lk.ijse.gdse.springcore.bean.MYBeanTwo;
-import lk.ijse.gdse.springcore.bean.MyBean;
-import lk.ijse.gdse.springcore.bean.MyConnection;
+import lk.ijse.gdse.springcore.bean.*;
 import lk.ijse.gdse.springcore.config.ApplicationConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -65,13 +62,21 @@ public class AppInitializer {
         // Application context is not create new bean instance always
         // all bean class instance create only one time and save them inside Application context.
         // and provide them on our request
-        MyBean bean = context.getBean(MyBean.class);
-        MyBean bean1 = context.getBean(MyBean.class);
-        MyBean bean2 = context.getBean(MyBean.class);
-        //if i change the mybean class scope @Scope("prototype") this class will always returns new instance
+
+//        MyBean bean = context.getBean(MyBean.class);
+//        MyBean bean1 = context.getBean(MyBean.class);
+//        MyBean bean2 = context.getBean(MyBean.class);
+
+// if i change the mybean class scope @Scope("prototype") this class will always returns new instance
+
+//        System.out.println(bean);
+//        System.out.println(bean1);
+//        System.out.println(bean2);
+
+// At this point bean class will create an object because developer requested it like this
+
+        BeanLifecycle bean = context.getBean(BeanLifecycle.class);
         System.out.println(bean);
-        System.out.println(bean1);
-        System.out.println(bean2);
 
     }
 }
