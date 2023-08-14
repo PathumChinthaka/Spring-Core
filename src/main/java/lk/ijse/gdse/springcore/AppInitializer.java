@@ -68,6 +68,7 @@ public class AppInitializer {
         MyBean bean = context.getBean(MyBean.class);
         MyBean bean1 = context.getBean(MyBean.class);
         MyBean bean2 = context.getBean(MyBean.class);
+        //if i change the mybean class scope @Scope("prototype") this class will always returns new instance
         System.out.println(bean);
         System.out.println(bean1);
         System.out.println(bean2);
