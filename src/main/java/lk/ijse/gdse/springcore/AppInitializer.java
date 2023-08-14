@@ -15,12 +15,12 @@ public class AppInitializer {
         context.refresh();
 
         //call the testBean concern inside mybean class
-        MyBean bean = context.getBean(MyBean.class);
-        bean.testBean();
+//        MyBean bean = context.getBean(MyBean.class);
+//        bean.testBean();
 
         //get bean classes from Spring Application context
-        System.out.println(context.getBean(MyBean.class));
-        System.out.println(context.getBean(MYBeanTwo.class));
+//        System.out.println(context.getBean(MyBean.class));
+//        System.out.println(context.getBean(MYBeanTwo.class));
 
 //      context.close();
 
@@ -40,27 +40,37 @@ public class AppInitializer {
 
         //get bean Id from Application context
         //MyBean->myBean First letter should be lowerCase
-        Object bean1 = context.getBean("myBean");
-        System.out.println(bean1);
+//        Object bean1 = context.getBean("myBean");
+//        System.out.println(bean1);
 
         //change default bean id
-        Object bean3 = context.getBean("SpringBeanThree");
-        System.out.println(bean3);
+//        Object bean3 = context.getBean("SpringBeanThree");
+//        System.out.println(bean3);
 
         //get bean id from the class i didnt define
         //this is not the correct way to access the bean id
 
-        MyConnection myConnection = (MyConnection) context.getBean("myConnection");
-        System.out.println(myConnection);
+//        MyConnection myConnection = (MyConnection) context.getBean("myConnection");
+//        System.out.println(myConnection);
 
         //if we use @Bean annotation we cannot access the bean id from class Name
         // we should provide the method name inside the config class
 
-        MyConnection myConnection1= (MyConnection) context.getBean("getConnection");
-        System.out.println(myConnection1);
+//        MyConnection myConnection1= (MyConnection) context.getBean("getConnection");
+//        System.out.println(myConnection1);
 
         //We can shut down Application context like this (automatically shut down Application context)
         context.registerShutdownHook();
+
+        // Application context is not create new bean instance always
+        // all bean class instance create only one time and save them inside Application context.
+        // and provide them on our request
+        MyBean bean = context.getBean(MyBean.class);
+        MyBean bean1 = context.getBean(MyBean.class);
+        MyBean bean2 = context.getBean(MyBean.class);
+        System.out.println(bean);
+        System.out.println(bean1);
+        System.out.println(bean2);
 
     }
 }
