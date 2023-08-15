@@ -27,7 +27,7 @@ public class ApplicationConfig {
 
     @Bean
     //change scope to prototype it will create new instance if developer request it
-    @Scope("prototype")
+//    @Scope("prototype")
     public MyConnection getConnection(){
         return new MyConnection();
     }
