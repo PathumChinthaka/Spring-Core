@@ -5,6 +5,7 @@ import lk.ijse.gdse.springcore.bean.MyConnection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 //Source for a bean definition
 @Configuration
@@ -25,6 +26,8 @@ public class ApplicationConfig {
     // step 2: add @bean annotation
 
     @Bean
+    //change scope to prototype it will create new instance if developer request it
+    @Scope("prototype")
     public MyConnection getConnection(){
         return new MyConnection();
     }

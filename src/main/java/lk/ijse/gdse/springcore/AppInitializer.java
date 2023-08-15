@@ -75,8 +75,8 @@ public class AppInitializer {
 
 // At this point bean class will create an object because developer requested it like this
 
-        BeanLifecycle bean = context.getBean(BeanLifecycle.class);
-        System.out.println(bean);
+//        BeanLifecycle bean = context.getBean(BeanLifecycle.class);
+//        System.out.println(bean);
 
     }
 }
