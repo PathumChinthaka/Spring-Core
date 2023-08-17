@@ -9,6 +9,6 @@ public class MyConnection implements DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("MyConnection object destroied");
+        System.out.println("MyConnection bean object destroied");
     }
 }
