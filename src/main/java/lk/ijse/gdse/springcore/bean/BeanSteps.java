@@ -7,7 +7,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
+
 //@Scope("prototype")
 public class BeanSteps implements BeanNameAware,
         BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean

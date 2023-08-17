@@ -1,6 +1,7 @@
 package lk.ijse.gdse.springcore;
 
 import lk.ijse.gdse.springcore.bean.*;
+import lk.ijse.gdse.springcore.bean.dependencyinject.Men;
 import lk.ijse.gdse.springcore.config.ApplicationConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -10,6 +11,9 @@ public class AppInitializer {
         AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
         context.register(ApplicationConfig.class);
         context.refresh();
+
+        //We can shut down Application context like this (automatically shut down Application context)
+        context.registerShutdownHook();
 
         //call the testBean concern inside mybean class
 //        MyBean bean = context.getBean(MyBean.class);
@@ -56,9 +60,6 @@ public class AppInitializer {
 //        MyConnection myConnection1= (MyConnection) context.getBean("getConnection");
 //        System.out.println(myConnection1);
 
-        //We can shut down Application context like this (automatically shut down Application context)
-        context.registerShutdownHook();
-
         // Application context is not create new bean instance always
         // all bean class instance create only one time and save them inside Application context.
         // and provide them on our request
@@ -77,6 +78,12 @@ public class AppInitializer {
 
 //        BeanLifecycle bean = context.getBean(BeanLifecycle.class);
 //        System.out.println(bean);
+
+        //DI implementation
+
+        Men men=context.getBean(Men.class);
+        System.out.println(men);
+        men.chatWithWomen();
 
     }
 }

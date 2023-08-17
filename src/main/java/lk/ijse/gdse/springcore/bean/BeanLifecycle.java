@@ -4,7 +4,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 
 //default the bean class scope is singleton it will create an object exately
 

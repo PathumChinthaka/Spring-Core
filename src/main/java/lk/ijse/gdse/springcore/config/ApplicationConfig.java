@@ -25,7 +25,7 @@ public class ApplicationConfig {
     // step 1 : create a method returns a new instance from class name
     // step 2: add @bean annotation
 
-    @Bean
+//    @Bean
     //change scope to prototype it will create new instance if developer request it
 //    @Scope("prototype")
     public MyConnection getConnection(){

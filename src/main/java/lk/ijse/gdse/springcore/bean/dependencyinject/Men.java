@@ -1,28 +1,20 @@
 package lk.ijse.gdse.springcore.bean.dependencyinject;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+
 public class Men {
 
-//--------property inject---------
+    @Autowired
+    Women women;
 
-//    Women women=new Women();
-
-//-------constructor injection--------
-
-//      Women women;
-//
-//      public Men(Women women){
-//          this.women=women;
-//      }
-
-//--------setter method inject---------
-
-//    public void setWomen(Women women){
-//        this.women=women;
-//    }
+    public Men(){
+        System.out.println("bean men instatiated");
+    }
 
     public void chatWithWomen(){
-        Women women=new Women();
-        //tight coupling
         women.chat();
     }
 }

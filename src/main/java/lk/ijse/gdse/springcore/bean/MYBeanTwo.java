@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Constructor;
 
-@Component
+//@Component
 
 public class MYBeanTwo {
     public MYBeanTwo(){
