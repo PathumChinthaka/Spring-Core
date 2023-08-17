@@ -4,10 +4,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-
+//@Scope("prototype")
 public class BeanSteps implements BeanNameAware,
         BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean
 {
@@ -40,4 +41,7 @@ public class BeanSteps implements BeanNameAware,
     public void destroy() throws Exception {
         System.out.println("Finally Bean destroyed");
     }
+
+    //if i changed the scope to prototype the destroy method will not invoke
+    //beacause prototype beans are create outside from the Applicationcontext
 }
