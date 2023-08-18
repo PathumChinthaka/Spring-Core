@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class Men {
 
     @Autowired
-    Women women;
+    GoodWomen women;
 
     public Men(){
         System.out.println("bean men instatiated");

@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 
-public class Women {
+public class Women implements GoodWomen {
     public Women(){
         System.out.println("women Instantiated");
     }
 
+    @Override
     public void chat() {
         System.out.println("women chatting");
-
     }
 }
