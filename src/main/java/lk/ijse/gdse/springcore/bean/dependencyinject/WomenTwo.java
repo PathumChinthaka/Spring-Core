@@ -4,7 +4,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
+//primary annotation get more priority during dependency injection
+//@Primary
 public class WomenTwo implements GoodWomen {
 
     public WomenTwo(){
