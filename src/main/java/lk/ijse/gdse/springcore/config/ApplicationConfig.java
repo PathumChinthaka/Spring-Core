@@ -41,11 +41,15 @@ public class ApplicationConfig {
     public InterBeanOne getInterBeanOne(){
         //inter bean dependency
 
-        InterBeanTwo interBeanTwo=getInterBeanTwo();
-        InterBeanTwo interBeanTwo1=getInterBeanTwo();
+        //if i didnt request an object from inter bean two
+        //getInterBeanOne method is invoking first and push the object to Application context
 
-        System.out.println(interBeanTwo);
-        System.out.println(interBeanTwo1);
+//        InterBeanTwo interBeanTwo=getInterBeanTwo();
+//        InterBeanTwo interBeanTwo1=getInterBeanTwo();
+//
+//        System.out.println(interBeanTwo);
+//        System.out.println(interBeanTwo1);
+
         return new InterBeanOne();
     }
 
