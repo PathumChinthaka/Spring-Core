@@ -81,9 +81,9 @@ public class AppInitializer {
 
         //DI implementation
 
-        Men men=context.getBean(Men.class);
-        System.out.println(men);
-        men.chatWithWomen();
+//        Men men=context.getBean(Men.class);
+//        System.out.println(men);
+//        men.chatWithWomen();
 
     }
 }

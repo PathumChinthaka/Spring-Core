@@ -3,7 +3,7 @@ package lk.ijse.gdse.springcore.bean.dependencyinject;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 //primary annotation get more priority during dependency injection
 //@Primary
 public class WomenTwo implements GoodWomen {

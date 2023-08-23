@@ -2,6 +2,8 @@ package lk.ijse.gdse.springcore.config;
 
 import lk.ijse.gdse.springcore.bean.MyBean;
 import lk.ijse.gdse.springcore.bean.MyConnection;
+import lk.ijse.gdse.springcore.bean.dependencyinject.InterBeanOne;
+import lk.ijse.gdse.springcore.bean.dependencyinject.InterBeanTwo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,7 @@ import org.springframework.context.annotation.Scope;
 
 //Refactor Freindly
 @ComponentScan(basePackageClasses = {MyBean.class})
+
 public class ApplicationConfig {
     public ApplicationConfig(){
         System.out.println("Application Config");
@@ -28,7 +31,26 @@ public class ApplicationConfig {
 //    @Bean
     //change scope to prototype it will create new instance if developer request it
 //    @Scope("prototype")
-    public MyConnection getConnection(){
-        return new MyConnection();
+//    public MyConnection getConnection(){
+//        return new MyConnection();
+//    }
+
+    //Inter bean dependency
+
+    @Bean
+    public InterBeanOne getInterBeanOne(){
+        //inter bean dependency
+
+        InterBeanTwo interBeanTwo=getInterBeanTwo();
+        InterBeanTwo interBeanTwo1=getInterBeanTwo();
+
+        System.out.println(interBeanTwo);
+        System.out.println(interBeanTwo1);
+        return new InterBeanOne();
+    }
+
+    @Bean
+    public InterBeanTwo getInterBeanTwo(){
+        return new InterBeanTwo();
     }
 }

@@ -3,7 +3,7 @@ package lk.ijse.gdse.springcore.bean.dependencyinject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 
 public class MenTwo {
 
