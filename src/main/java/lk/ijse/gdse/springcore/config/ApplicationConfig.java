@@ -50,6 +50,8 @@ public class ApplicationConfig {
     }
 
     @Bean
+    //this method is invoking first and push the object to Application context
+    // beacause i requested an instance inside inter bean one method
     public InterBeanTwo getInterBeanTwo(){
         return new InterBeanTwo();
     }
