@@ -1,9 +1,10 @@
 package lk.ijse.gdse.springcore.config;
 
 import lk.ijse.gdse.springcore.bean.MyBean;
-import lk.ijse.gdse.springcore.bean.MyConnection;
 import lk.ijse.gdse.springcore.bean.dependencyinject.InterBeanOne;
 import lk.ijse.gdse.springcore.bean.dependencyinject.InterBeanTwo;
+import lk.ijse.gdse.springcore.bean.fullmode.MyBasicDataSource;
+import lk.ijse.gdse.springcore.bean.fullmode.MyConnection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,52 +12,28 @@ import org.springframework.context.annotation.Scope;
 
 //Source for a bean definition
 @Configuration
-
-//Scan POJO s and push into the ApplicationContext
-//@ComponentScan(basePackages = "lk.ijse.gdse.springcore.bean")
-
-//Refactor Freindly
-@ComponentScan(basePackageClasses = {MyBean.class})
-
+@ComponentScan(basePackages = "lk.ijse.gdse.springcore.bean")
 public class ApplicationConfig {
-    public ApplicationConfig(){
-        System.out.println("Application Config");
-    }
 
-    //how to include a class(not defined by you) into the Application context
-
-    // step 1 : create a method returns a new instance from class name
-    // step 2: add @bean annotation
-
-//    @Bean
-    //change scope to prototype it will create new instance if developer request it
-//    @Scope("prototype")
-//    public MyConnection getConnection(){
-//        return new MyConnection();
-//    }
-
-    //Inter bean dependency
+    //If we introduce spring beans to the application context via Spring
+    //Configuration class with @Bean methods it mean Spring Full mode
 
     @Bean
-    public InterBeanOne getInterBeanOne(){
+    public MyBasicDataSource basicDataSource(){
+
         //inter bean dependency
+        MyConnection myConnection=connection();
 
-        //if i didnt request an object from inter bean two
-        //getInterBeanOne method is invoking first and push the object to Application context
+        System.out.println(myConnection);
 
-//        InterBeanTwo interBeanTwo=getInterBeanTwo();
-//        InterBeanTwo interBeanTwo1=getInterBeanTwo();
-//
-//        System.out.println(interBeanTwo);
-//        System.out.println(interBeanTwo1);
+        MyBasicDataSource myBasicDataSource=new MyBasicDataSource();
+        myBasicDataSource.setMyConnection(myConnection);
 
-        return new InterBeanOne();
+        return myBasicDataSource;
     }
 
     @Bean
-    //this method is invoking first and push the object to Application context
-    // beacause i requested an instance inside inter bean one method
-    public InterBeanTwo getInterBeanTwo(){
-        return new InterBeanTwo();
+    public MyConnection connection(){
+        return new MyConnection();
     }
 }
