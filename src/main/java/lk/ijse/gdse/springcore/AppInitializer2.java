@@ -15,10 +15,11 @@ public class AppInitializer2 {
         //We can shut down Application context like this (automatically shut down Application context)
         context.registerShutdownHook();
 
-        Map<String, String> getenv = System.getenv();
-        for(String key:getenv.keySet()){
-            System.out.println(key+":"+getenv.get(key));
-        }
+        //get os details via spring environment
+//        Map<String, String> getenv = System.getenv();
+//        for(String key:getenv.keySet()){
+//            System.out.println(key+":"+getenv.get(key));
+//        }
 
     }
 }
